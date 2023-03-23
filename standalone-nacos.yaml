@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  nacos:
+    image: nacos/nacos-server:v2.2.1
+    container_name: nacos-standalone
+    env_file:
+      - ./env/nacos-standlone-mysql.env
+      - ./env/nacos.env
+    volumes:
+      - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+      - ./nacos/logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    restart: always
+
