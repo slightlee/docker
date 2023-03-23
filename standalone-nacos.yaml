@@ -13,4 +13,5 @@ services:
       - "8848:8848"
       - "9848:9848"
     restart: always
+    #network_mode: bridge  # 可通过 docker inspect mysql 查看mysql的网络模式    可通过 docker network ls 查看网络
 
