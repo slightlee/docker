@@ -7,3 +7,9 @@
 ### 2、standalone-nacos.yaml
 
 > standalone-nacos.yaml 只安装nacos【前提 mysql已经安装、数据已经导入】
+
+### 3、nginx compose 文件
+
+> nginx/nginx-linux.yaml    # linux 环境下 compose文件
+>
+> nginx/nginx-win.yaml	  # window 环境下 compose文件
