@@ -3,6 +3,8 @@ services:
   nacos:
     image: nacos/nacos-server:v2.2.1
     container_name: nacos-standalone
+    environment:
+      - TZ=Asia/Shanghai
     env_file:
       - ./env/nacos-standlone-mysql.env
       - ./env/nacos.env
@@ -18,6 +20,8 @@ services:
     restart: always
   mysql:
     container_name: mysql
+    environment:
+      - TZ=Asia/Shanghai
     build:
       context: .
       dockerfile: ./image/mysql/8/Dockerfile
