@@ -9,7 +9,6 @@ services:
       - /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf
       - /home/nginx/conf.d:/etc/nginx/conf.d
       - /home/nginx/ssl:/etc/nginx/ssl/
-      - /home/nginx/ip:/etc/nginx/ip/
       - /home/nginx/logs:/var/log/nginx
     ports:
       - "80:80"
