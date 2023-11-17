@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mysql:
+    container_name: mysql
+    build:
+      context: .
+      dockerfile: ./image/mysql/8/Dockerfile
+    env_file:
+      - ./env/mysql.env
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u my_user -p=${MYSQL_PASSWORD}"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+

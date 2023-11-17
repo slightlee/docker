@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  nacos:
+    image: nacos/nacos-server:v2.2.1
+    container_name: nacos-standalone
+    env_file:
+      - ./env/nacos-standlone-mysql.env
+      - ./env/nacos.env
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
+      - ./nacos/logs/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    restart: always
+    # 可通过 docker inspect mysql 查看mysql的网络模式
+    # 可通过 docker network ls    查看网络
+    # 多个容器可以自定义统一网络名
+    network_mode: mysql_default
+
+
