@@ -9,7 +9,7 @@ services:
       - ./env/mysql.env
     volumes:
       - /etc/localtime:/etc/localtime
-      - ./mysql:/var/lib/mysql
+      - ./mysqldata:/var/lib/mysql
     ports:
       - "3306:3306"
     healthcheck:
