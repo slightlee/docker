@@ -3,11 +3,12 @@ services:
   nacos:
     image: nacos/nacos-server:v2.2.1
     container_name: nacos-standalone
+    environment:
+      - TZ=Asia/Shanghai
     env_file:
       - ./env/nacos-standlone-mysql.env
       - ./env/nacos.env
     volumes:
-      - /etc/localtime:/etc/localtime
       - ./nacos/conf/application.properties:/home/nacos/conf/application.properties
       - ./nacos/logs/:/home/nacos/logs
     ports:
@@ -19,19 +20,19 @@ services:
     restart: always
   mysql:
     container_name: mysql
+    environment:
+      - TZ=Asia/Shanghai
     build:
       context: .
       dockerfile: ./image/mysql/8/Dockerfile
-    image: mysql:8.0.32
     env_file:
       - ./env/mysql.env
     volumes:
-      - /etc/localtime:/etc/localtime
-      - ./mysql:/var/lib/mysql
+      - ./mysqldata:/var/lib/mysql
     ports:
       - "3306:3306"
     healthcheck:
-      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u my_user -p=${MYSQL_PASSWORD}"]
       interval: 5s
       timeout: 10s
       retries: 10
