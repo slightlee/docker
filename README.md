@@ -39,3 +39,9 @@
 > nginx/nginx-linux.yaml    # linux 环境下 compose文件
 >
 > nginx/nginx-win.yaml	  # window 环境下 compose文件
+
+### 4、mysql compose 文件
+
+> mysql-8-linux.yaml 	   # linux 环境下 compose文件
+>
+> mysql-8-win.yaml		  # window 环境下 compose文件
