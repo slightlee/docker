@@ -1,3 +1,3 @@
-*.yaml linguist-language=docker
-*.yml linguist-language=docker
-*.env linguist-language=docker
+*.yaml linguist-language=Dockerfile
+*.yml linguist-language=Dockerfile
+*.env linguist-language=Dockerfile
